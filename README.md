@@ -1,8 +1,5 @@
 ## Getting Started
 
-A NextJS starter template with shadcn/ui code added
+A project designed to test out the prismic.io features - currently work in progress
 
-### Reference
 
-Code reference tutorial: https://www.youtube.com/watch?v=l93uukpAoxE by Hamed
-Bahram

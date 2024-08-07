@@ -1,5 +1,5 @@
-import type { Config } from 'tailwindcss'
-import { fontFamily } from 'tailwindcss/defaultTheme'
+import type { Config } from 'tailwindcss';
+// import { fontFamily } from 'tailwindcss/defaultTheme';
 
 const config = {
   darkMode: ['class'],
@@ -7,7 +7,8 @@ const config = {
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}'
+    './src/**/*.{ts,tsx}',
+    './slices/**/*.{ts,tsx}'
   ],
   prefix: '',
   theme: {
@@ -19,26 +20,27 @@ const config = {
       }
     },
     extend: {
-      keyframes: {
-        'accordion-down': {
-          from: { height: '0' },
-          to: { height: 'var(--radix-accordion-content-height)' }
-        },
-        'accordion-up': {
-          from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: '0' }
-        }
-      },
+      // keyframes: {
+      //   'accordion-down': {
+      //     from: { height: '0' },
+      //     to: { height: 'var(--radix-accordion-content-height)' }
+      //   },
+      //   'accordion-up': {
+      //     from: { height: 'var(--radix-accordion-content-height)' },
+      //     to: { height: '0' }
+      //   }
+      // },
       fontFamily: {
-        sans: ['var(--font-sans)', ...fontFamily.sans]
-      },
-      animation: {
-        'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out'
+        body: ['var(--font-nunito-sans)'],
+        display: ['var(--font-nunito)']
       }
+      // animation: {
+      //   'accordion-down': 'accordion-down 0.2s ease-out',
+      //   'accordion-up': 'accordion-up 0.2s ease-out'
+      // }
     }
   },
   plugins: [require('tailwindcss-animate')]
-} satisfies Config
+} satisfies Config;
 
-export default config
+export default config;

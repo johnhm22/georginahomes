@@ -18,7 +18,13 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "property": {
+              "type": "SharedSlice"
+            },
             "hero": {
+              "type": "SharedSlice"
+            },
+            "testimonials": {
               "type": "SharedSlice"
             }
           }

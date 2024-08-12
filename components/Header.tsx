@@ -7,9 +7,9 @@ const Header = async () => {
   const client = createClient();
   const settings = await client.getSingle('settings');
   return (
-    <header className='flex flex-row justify-between px-2 py-4'>
+    <header className='mx-2 flex flex-row justify-between px-2 py-4'>
       <div className='flex flex-row items-center gap-2'>
-        <Link className='text-xl font-bold text-slate-500' href='/'>
+        <Link className='text-xl font-normal text-slate-500' href='/'>
           {settings.data.site_title}
         </Link>
         <svg
@@ -23,7 +23,7 @@ const Header = async () => {
       </div>
 
       <nav>
-        <ul className='flex flex-row gap-4 font-semibold text-slate-500'>
+        <ul className='flex flex-row gap-4 font-normal text-slate-500'>
           {settings.data.navigation.map(item => (
             <li key={item.label}>
               <PrismicNextLink field={item.link}>{item.label}</PrismicNextLink>

@@ -15,14 +15,15 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      // className='border border-red-500 px-4 py-10 md:px-6 md:py-14 lg:py-16'
     >
-      <div className='relative mb-4 flex justify-center'>
-        <div className='absolute px-2 py-2 text-yellow-700'>
+      <div className='flex justify-center'>
+        <div className='absolute px-2 py-2 text-center'>
           <PrismicRichText
             field={slice.primary.heading}
             components={{
               heading1: ({ children }) => (
-                <h1 className='font-display text-3xl font-bold md:text-7xl'>
+                <h1 className='font-display font-semiboldbold py-6 text-2xl md:text-6xl'>
                   {children}
                 </h1>
               )
@@ -32,7 +33,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
             field={slice.primary.body}
             components={{
               paragraph: ({ children }) => (
-                <p className='font-body mb-4 text-lg font-normal leading-10 md:text-4xl'>
+                <p className='font-body text-lg font-normal leading-10 md:text-3xl'>
                   {children}
                 </p>
               )
@@ -41,9 +42,10 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
         </div>
         <PrismicNextImage
           field={slice.primary.image}
-          className='rounded-2xl'
-          width={900}
-          height={500}
+          className='100vw'
+          // width={1100}
+          // height={900}
+          alt=''
         />
       </div>
     </section>

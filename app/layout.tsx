@@ -40,7 +40,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={clsx(nunito.variable, nunitoSans.variable)}>
+      <body
+        className={clsx(nunito.variable, nunitoSans.variable, 'bg-slate-50')}
+      >
         <Header />
         {children}
         <Footer />

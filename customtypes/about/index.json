@@ -1,7 +1,7 @@
 {
   "format": "page",
-  "id": "homepage",
-  "label": "Homepage",
+  "id": "about",
+  "label": "About",
   "repeatable": false,
   "status": true,
   "json": {
@@ -13,17 +13,20 @@
           "placeholder": ""
         }
       },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "property": {
-              "type": "SharedSlice"
-            },
-            "hero": {
-              "type": "SharedSlice"
-            },
             "testimonials": {
               "type": "SharedSlice"
             }
@@ -56,26 +59,6 @@
           "thumbnails": []
         },
         "type": "Image"
-      }
-    },
-    "Properties": {
-      "prop_title": {
-        "type": "Text",
-        "config": {
-          "label": "Prop title",
-          "placeholder": ""
-        }
-      },
-      "slices2": {
-        "type": "Slices",
-        "fieldset": "Slice Zone",
-        "config": {
-          "choices": {
-            "property": {
-              "type": "SharedSlice"
-            }
-          }
-        }
       }
     }
   }

@@ -1,46 +1,31 @@
 import type { Config } from 'tailwindcss';
-// import { fontFamily } from 'tailwindcss/defaultTheme';
 
-const config = {
-  darkMode: ['class'],
+const config: Config = {
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-    './slices/**/*.{ts,tsx}'
+    './slices/**/*.{js,ts,jsx,tsx,mdx}'
   ],
-  prefix: '',
   theme: {
+    extend: {
+      // fontFamily: {
+      //   // body: ['var(--font-nunito-sans)'],
+      //   display: ['var(--font-nunito)']
+      // }
+    },
     container: {
       center: true,
-      padding: '2rem',
-      screens: {
-        '2xl': '1400px'
+      padding: {
+        DEFAULT: '1rem',
+        md: '1.5 rem',
+        lg: '2 rem'
       }
-    },
-    extend: {
-      // keyframes: {
-      //   'accordion-down': {
-      //     from: { height: '0' },
-      //     to: { height: 'var(--radix-accordion-content-height)' }
-      //   },
-      //   'accordion-up': {
-      //     from: { height: 'var(--radix-accordion-content-height)' },
-      //     to: { height: '0' }
-      //   }
-      // },
-      fontFamily: {
-        body: ['var(--font-nunito-sans)'],
-        display: ['var(--font-nunito)']
-      }
-      // animation: {
-      //   'accordion-down': 'accordion-down 0.2s ease-out',
-      //   'accordion-up': 'accordion-up 0.2s ease-out'
-      // }
     }
   },
-  plugins: [require('tailwindcss-animate')]
-} satisfies Config;
+
+  plugins: []
+};
 
 export default config;

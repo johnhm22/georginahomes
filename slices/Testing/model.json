@@ -1,0 +1,51 @@
+{
+  "id": "testing",
+  "type": "SharedSlice",
+  "name": "Testing",
+  "description": "Testing",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "property_listing": {
+          "type": "Text",
+          "config": {
+            "label": "Property Listing",
+            "placeholder": ""
+          }
+        },
+        "repeatable": {
+          "type": "Group",
+          "config": {
+            "label": "Repeatable",
+            "repeat": true,
+            "fields": {}
+          }
+        },
+        "photos": {
+          "type": "Group",
+          "config": {
+            "label": "Photos",
+            "repeat": true,
+            "fields": {
+              "photo": {
+                "type": "Image",
+                "config": {
+                  "label": "Photo",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"property": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"monthly_rent",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "happened",
+									"type": "Text"
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "catch",
+									"type": "Text"
+								}
+							],
+							[
+								"address",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "unless",
+									"type": "Text"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Cillum ipsum qui irure nisi do aute ad veniam in duis aliqua deserunt tempor cillum cillum."
+											}
+										}
+									]
+								}
+							],
+							[
+								"list_date",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "fur",
+									"type": "Text"
+								}
+							],
+							[
+								"available_from",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "nothing",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

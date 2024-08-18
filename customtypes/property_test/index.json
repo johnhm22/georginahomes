@@ -1,0 +1,35 @@
+{
+  "format": "custom",
+  "id": "property_test",
+  "label": "Property Test",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "heading_of_custom_type": {
+        "type": "Text",
+        "config": {
+          "label": "Heading of custom type",
+          "placeholder": ""
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "property": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

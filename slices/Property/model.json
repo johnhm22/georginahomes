@@ -12,6 +12,13 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "property_address": {
+          "type": "Text",
+          "config": {
+            "label": "Property Address",
+            "placeholder": ""
+          }
+        },
         "monthly_rent": {
           "type": "Text",
           "config": {

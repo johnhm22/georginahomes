@@ -6,6 +6,7 @@ import Link from 'next/link';
 const Header = async () => {
   const client = createClient();
   const settings = await client.getSingle('settings');
+  // const settings = await client.getAllByIDs
   return (
     <header className='mx-2 flex flex-row justify-between px-2 py-4'>
       <div className='flex flex-row items-center gap-2'>

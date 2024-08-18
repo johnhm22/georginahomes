@@ -1,0 +1,72 @@
+{
+  "id": "property2",
+  "type": "SharedSlice",
+  "name": "Property2",
+  "description": "Property2",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "property": {
+          "type": "Group",
+          "config": {
+            "label": "Property",
+            "repeat": true,
+            "fields": {
+              "monthly_rent": {
+                "type": "Text",
+                "config": {
+                  "label": "Monthly rent",
+                  "placeholder": ""
+                }
+              },
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": ""
+                }
+              },
+              "address": {
+                "type": "Text",
+                "config": {
+                  "label": "Address",
+                  "placeholder": ""
+                }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Description",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em"
+                }
+              },
+              "list_date": {
+                "type": "Text",
+                "config": {
+                  "label": "List date",
+                  "placeholder": ""
+                }
+              },
+              "available_from": {
+                "type": "Text",
+                "config": {
+                  "label": "Available from",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -4,7 +4,7 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type AboutDocumentDataSlicesSlice = TestimonialsSlice;
+type AboutDocumentDataSlicesSlice = ContactUsSlice | TestimonialsSlice;
 
 /**
  * Content for About documents
@@ -475,68 +475,88 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-/**
- * Content for Testimonial documents
- */
-interface TestimonialDocumentData {
-  /**
-   * Name field in *Testimonial*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: testimonial.name
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  name: prismic.KeyTextField;
-
-  /**
-   * Quote field in *Testimonial*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: testimonial.quote
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  quote: prismic.RichTextField;
-
-  /**
-   * Date field in *Testimonial*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: testimonial.date
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  date: prismic.KeyTextField;
-}
-
-/**
- * Testimonial document from Prismic
- *
- * - **API ID**: `testimonial`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type TestimonialDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<TestimonialDocumentData>,
-    'testimonial',
-    Lang
-  >;
-
 export type AllDocumentTypes =
   | AboutDocument
   | HomepageDocument
   | NewPageDocument
   | PropertiesDocument
   | PropertyTestDocument
-  | SettingsDocument
-  | TestimonialDocument;
+  | SettingsDocument;
+
+/**
+ * Primary content in *ContactUs → Default → Primary*
+ */
+export interface ContactUsSliceDefaultPrimary {
+  /**
+   * Title field in *ContactUs → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_us.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Email field in *ContactUs → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_us.default.primary.email
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  email: prismic.KeyTextField;
+
+  /**
+   * Contact number field in *ContactUs → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_us.default.primary.contact_number
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  contact_number: prismic.KeyTextField;
+
+  /**
+   * Background image field in *ContactUs → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_us.default.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for ContactUs Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactUsSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<ContactUsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ContactUs*
+ */
+type ContactUsSliceVariation = ContactUsSliceDefault;
+
+/**
+ * ContactUs Shared Slice
+ *
+ * - **API ID**: `contact_us`
+ * - **Description**: ContactUs
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactUsSlice = prismic.SharedSlice<
+  'contact_us',
+  ContactUsSliceVariation
+>;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -1040,9 +1060,11 @@ declare module '@prismicio/client' {
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataNavigationItem,
-      TestimonialDocument,
-      TestimonialDocumentData,
       AllDocumentTypes,
+      ContactUsSlice,
+      ContactUsSliceDefaultPrimary,
+      ContactUsSliceVariation,
+      ContactUsSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,

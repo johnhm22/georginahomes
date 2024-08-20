@@ -14,15 +14,14 @@ const Testimonials = ({ slice }: TestimonialsProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      // className='px-4 py-10 md:px-6 md:py-14 lg:py-16'
       className='mb-6 flex justify-center py-4'
     >
-      <section className='grid w-2/3 grid-cols-1 text-center'>
+      <section className='grid w-2/3 grid-cols-1 bg-slate-50 text-center opacity-70'>
         <PrismicRichText
           field={slice.primary.heading}
           components={{
             heading2: ({ children }) => (
-              <h2 className='mb-9 text-xl font-semibold'>{children}</h2>
+              <h2 className=' pt-5 text-xl font-semibold'>{children}</h2>
             )
           }}
         />
@@ -32,13 +31,13 @@ const Testimonials = ({ slice }: TestimonialsProps): JSX.Element => {
               // Render the item
               <div
                 key={index}
-                className='grid w-full max-w-6xl content-between rounded-lg border p-4 shadow-lg'
+                className='grid w-full max-w-6xl content-between p-4'
               >
                 <PrismicRichText
                   field={item.quote}
                   components={{
                     paragraph: ({ children }) => (
-                      <p className='p-2 text-base sm:text-left'>{children}</p>
+                      <p className='mb-2 text-base sm:text-left'>{children}</p>
                     )
                   }}
                 />

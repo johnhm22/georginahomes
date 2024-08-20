@@ -11,9 +11,13 @@ const config: Config = {
   theme: {
     extend: {
       // fontFamily: {
-      //   // body: ['var(--font-nunito-sans)'],
+      //   body: ['var(--font-nunito-sans)'],
       //   display: ['var(--font-nunito)']
       // }
+      backgroundImage: {
+        'contact-us':
+          "url('https://images.prismic.io/georginahomes/ZsMK4kaF0TcGJC7V_adam-winger-t4oVP2xFMJ8-unsplash.jpg?auto=format,compress')"
+      }
     },
     container: {
       center: true,

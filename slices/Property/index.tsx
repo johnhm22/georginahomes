@@ -54,10 +54,9 @@ const Property = ({ slice }: PropertyProps): JSX.Element => {
 
   // let imageIndex = 0;
   const handleOnClick = (e: React.MouseEvent<HTMLElement>) => {
-    console.log('onClick clicked');
+    // console.log('onClick clicked');
     // imageIndex += 1;
-
-    console.log('*** e ***', e);
+    // console.log('*** e ***', e);
     // console.log('*** e.currentTarget ***', e.currentTarget);
   };
 
@@ -65,7 +64,7 @@ const Property = ({ slice }: PropertyProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className='flex justify-center'
+      className='mt-8 flex justify-center'
     >
       <div className='my-2 flex w-2/3 flex-row gap-2 rounded-lg border p-4 shadow-lg'>
         {displayImages()}
@@ -76,14 +75,14 @@ const Property = ({ slice }: PropertyProps): JSX.Element => {
           ) : (
             <PrismicNextImage field={imageArray[2].property_photo} />
           )}
-          {imageArray.length > 1 ? (
+          {/* {imageArray.length > 1 ? (
             <p
               className='z-1 absolute -right-0 top-44 cursor-pointer pr-2 text-2xl font-bold'
               onClick={handleOnClick}
             >
               X
             </p>
-          ) : null}
+          ) : null} */}
         </div>
         <div className='flex w-1/2 flex-col'>
           <div className='mb-2 text-2xl font-bold'>

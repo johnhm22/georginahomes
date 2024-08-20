@@ -10,7 +10,7 @@ export type Property2Props = SliceComponentProps<Content.Property2Slice>;
  * Component for "Property2" Slices.
  */
 const Property2 = ({ slice }: Property2Props): JSX.Element => {
-  console.log('slice from Property tab: ', slice);
+  // console.log('slice from Property tab: ', slice);
   return (
     <section
       data-slice-type={slice.slice_type}

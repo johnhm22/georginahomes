@@ -29,7 +29,7 @@ export default async function Page() {
   const calthorpe = await client.getByTag('C6 Calthorpe');
   const tag = await client.getByTag('Property 1');
 
-  console.log('page.data.slices: ', page.data.slices);
+  // console.log('page.data.slices: ', page.data.slices);
 
   return (
     <>

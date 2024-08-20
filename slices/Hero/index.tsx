@@ -11,6 +11,8 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
  * Component for "Hero" Slices.
  */
 const Hero = ({ slice }: HeroProps): JSX.Element => {
+  // console.log('slice.primary.image from Hero: ', slice.primary.image);
+
   return (
     <section
       data-slice-type={slice.slice_type}

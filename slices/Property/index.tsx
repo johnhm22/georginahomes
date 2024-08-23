@@ -7,6 +7,14 @@ import { PrismicRichText, SliceComponentProps } from '@prismicio/react';
 import { useState } from 'react';
 import Image from 'next/image';
 
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from '@/components/ui/carousel';
+
 /**
  * Props for `Property`.
  */

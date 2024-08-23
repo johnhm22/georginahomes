@@ -67,15 +67,22 @@ const Property = ({ slice }: PropertyProps): JSX.Element => {
       className='mt-8 flex justify-center'
     >
       <div className='my-2 flex w-2/3 flex-row gap-2 rounded-lg border p-4 shadow-lg'>
-        {displayImages()}
-        {/* <PrismicNextImage field={slice.primary.photos[0]!.property_photo} /> */}
-        <div className='relative z-0'>
+        {/* {displayImages()} */}
+
+        <div>
+          {slice.primary.photos.map(item => (
+            // Render the item
+            <PrismicNextImage field={item.property_photo} />
+          ))}
+        </div>
+
+        {/* <div className='relative z-0'>
           {slice.primary.photos.length === 1 ? (
             <PrismicNextImage field={imageArray[0].property_photo} />
           ) : (
             <PrismicNextImage field={imageArray[2].property_photo} />
-          )}
-          {/* {imageArray.length > 1 ? (
+          )} */}
+        {/* {imageArray.length > 1 ? (
             <p
               className='z-1 absolute -right-0 top-44 cursor-pointer pr-2 text-2xl font-bold'
               onClick={handleOnClick}
@@ -83,7 +90,7 @@ const Property = ({ slice }: PropertyProps): JSX.Element => {
               X
             </p>
           ) : null} */}
-        </div>
+        {/* </div> */}
         <div className='flex w-1/2 flex-col'>
           <div className='mb-2 text-2xl font-bold'>
             <>{slice.primary.monthly_rent} PCM</>

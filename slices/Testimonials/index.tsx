@@ -16,7 +16,7 @@ const Testimonials = ({ slice }: TestimonialsProps): JSX.Element => {
       data-slice-variation={slice.variation}
       className='mb-6 flex justify-center py-4'
     >
-      <section className='grid w-2/3 grid-cols-1 bg-slate-50 text-center opacity-70'>
+      <section className='grid grid-cols-1  text-center'>
         <PrismicRichText
           field={slice.primary.heading}
           components={{

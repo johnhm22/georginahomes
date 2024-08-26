@@ -1,10 +1,16 @@
 'use client';
 
 import { Content } from '@prismicio/client';
-import { PrismicNextImage } from '@prismicio/next';
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react';
-import { Item } from '@radix-ui/react-dropdown-menu';
-import { useEffect, useState } from 'react';
+import Image from 'next/image';
+
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from '@/components/ui/carousel';
 
 /**
  * Props for `Property`.
@@ -14,18 +20,7 @@ export type PropertyProps = SliceComponentProps<Content.PropertySlice>;
 /**
  * Component for "Property" Slices.
  */
-const Property = ({ slice }: PropertyProps): JSX.Element => {
-  // const [currentImage, setCurrentImage] = useState<>(null);
-
-  // console.log('*** slice ***:', slice.id);
-
-  // slice.primary.photos.map(item =>
-  //   // console.log('************')
-  //   // console.log('*** item ***', item)
-  //   // console.log('************')
-  //   imageArray.push(...item.primary.photos)
-  // );
-
+const Property = async ({ slice }: PropertyProps): Promise<JSX.Element> => {
   /*
   Below is field entry for PrismicNextImage
   *** item *** {
@@ -40,25 +35,7 @@ const Property = ({ slice }: PropertyProps): JSX.Element => {
   }
 */
 
-  // console.log('**** slice.primary.photos[0] ****: ', slice.primary.photos[0]);
-
-  const imageArray: Content.PropertySliceDefaultPrimaryPhotosItem[] = [];
-  const displayImages = () => {
-    slice.primary.photos.map(item => {
-      imageArray.push(item);
-    });
-    // console.log('imageArray: ', imageArray);
-    console.log('*** slice from displayImages***:', slice.id);
-    return null;
-  };
-
-  // let imageIndex = 0;
-  const handleOnClick = (e: React.MouseEvent<HTMLElement>) => {
-    // console.log('onClick clicked');
-    // imageIndex += 1;
-    // console.log('*** e ***', e);
-    // console.log('*** e.currentTarget ***', e.currentTarget);
-  };
+  console.log('**** slice.primary.photos ****: ', slice.primary.photos);
 
   return (
     <section
@@ -67,30 +44,24 @@ const Property = ({ slice }: PropertyProps): JSX.Element => {
       className='mt-8 flex justify-center'
     >
       <div className='my-2 flex w-2/3 flex-row gap-2 rounded-lg border p-4 shadow-lg'>
-        {/* {displayImages()} */}
-
         <div>
-          {slice.primary.photos.map(item => (
-            // Render the item
-            <PrismicNextImage field={item.property_photo} />
-          ))}
+          <Carousel className='w-full max-w-xs'>
+            <CarouselContent>
+              {slice.primary.photos.map((item, index) => (
+                <CarouselItem key={index}>
+                  <Image
+                    src={item.property_photo.url || ''} //need to enter default
+                    alt={item.property_photo.alt || ''}
+                    height={400}
+                    width={500}
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            {slice.primary.photos.length > 1 ? <CarouselPrevious /> : null}
+            {slice.primary.photos.length > 1 ? <CarouselNext /> : null}
+          </Carousel>
         </div>
-
-        {/* <div className='relative z-0'>
-          {slice.primary.photos.length === 1 ? (
-            <PrismicNextImage field={imageArray[0].property_photo} />
-          ) : (
-            <PrismicNextImage field={imageArray[2].property_photo} />
-          )} */}
-        {/* {imageArray.length > 1 ? (
-            <p
-              className='z-1 absolute -right-0 top-44 cursor-pointer pr-2 text-2xl font-bold'
-              onClick={handleOnClick}
-            >
-              X
-            </p>
-          ) : null} */}
-        {/* </div> */}
         <div className='flex w-1/2 flex-col'>
           <div className='mb-2 text-2xl font-bold'>
             <>{slice.primary.monthly_rent} PCM</>

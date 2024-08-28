@@ -41,7 +41,7 @@ const Property = async ({ slice }: PropertyProps): Promise<JSX.Element> => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className='mt-8 flex justify-center'
+      className='mt-12 flex justify-center'
     >
       <div className='my-2 flex w-2/3 flex-row gap-2 rounded-lg border p-4 shadow-lg'>
         <div>

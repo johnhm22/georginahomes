@@ -51,6 +51,11 @@
 				"credits": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"property_heading": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Check out our properties to rent...."
 			}
 		},
 		"items": []

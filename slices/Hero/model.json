@@ -37,6 +37,13 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "property_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Property heading",
+            "placeholder": ""
+          }
         }
       },
       "items": {}

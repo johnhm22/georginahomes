@@ -87,10 +87,7 @@ interface AboutDocumentData {
 export type AboutDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<AboutDocumentData>, 'about', Lang>;
 
-type HomepageDocumentDataSlicesSlice =
-  | PropertySlice
-  | HeroSlice
-  | TestimonialsSlice;
+type HomepageDocumentDataSlicesSlice = PropertySlice | HeroSlice;
 
 type HomepageDocumentDataSlices2Slice = PropertySlice;
 
@@ -591,6 +588,16 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * Property heading field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.property_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  property_heading: prismic.KeyTextField;
 }
 
 /**

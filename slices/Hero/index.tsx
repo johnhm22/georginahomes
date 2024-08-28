@@ -26,7 +26,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
               field={slice.primary.heading}
               components={{
                 heading1: ({ children }) => (
-                  <h1 className='font-display font-semiboldbold py-6 text-2xl md:text-6xl'>
+                  <h1 className='font-display py-6 text-2xl md:text-6xl'>
                     {children}
                   </h1>
                 )
@@ -52,9 +52,9 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           />
         </div>
 
-        <div className='mt-12 flex justify-center text-4xl font-semibold'>
+        <h2 className='font-display mt-16 flex justify-center text-4xl'>
           {slice.primary.property_heading}
-        </div>
+        </h2>
       </div>
     </section>
   );

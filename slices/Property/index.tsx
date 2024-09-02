@@ -35,7 +35,7 @@ const Property = async ({ slice }: PropertyProps): Promise<JSX.Element> => {
   }
 */
 
-  console.log('**** slice.primary.photos ****: ', slice.primary.photos);
+  // console.log('**** slice.primary.photos ****: ', slice.primary.photos);
 
   return (
     <section

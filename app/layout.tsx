@@ -25,6 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await client.getSingle('settings');
 
   return {
+    manifest: '/manifest/json',
     title: settings.data.site_title || 'Georgina Homes',
     description: settings.data.meta_description || 'Georgina Homes helping you',
     openGraph: {

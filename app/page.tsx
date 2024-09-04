@@ -22,6 +22,7 @@ import { SliceZone } from '@prismicio/react';
 
 import { createClient } from '@/prismicio';
 import { components } from '@/slices';
+import Filter from '@/components/Filter';
 
 export default async function Page() {
   const client = createClient();
@@ -34,6 +35,7 @@ export default async function Page() {
   return (
     <>
       <SliceZone slices={page.data.slices} components={components} />;
+      <Filter />
     </>
   );
 }

@@ -9,7 +9,11 @@
     "lint": "next lint",
     "slicemachine": "start-slicemachine"
   },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+  },
   "dependencies": {
+    "@prisma/client": "^5.19.1",
     "@prismicio/client": "^7.8.0",
     "@prismicio/next": "^1.6.0",
     "@prismicio/react": "^2.8.0",
@@ -29,7 +33,7 @@
   },
   "devDependencies": {
     "@slicemachine/adapter-next": "^0.3.45",
-    "@types/node": "^20",
+    "@types/node": "^20.16.5",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
@@ -38,8 +42,10 @@
     "postcss": "^8",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.12",
+    "prisma": "^5.19.1",
     "slice-machine-ui": "^2.4.1",
     "tailwindcss": "^3.3.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }

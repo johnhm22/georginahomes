@@ -26,6 +26,12 @@ const nextConfig = {
         hostname: 'images.prismic.io',
         port: ''
         // pathname: '/my-bucket/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.flaticon.com',
+        port: ''
+        // pathname: '/my-bucket/**',
       }
     ]
   }

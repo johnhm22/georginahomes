@@ -10,42 +10,72 @@ import {
 import Image from 'next/image';
 import useEmblaCarousel from 'embla-carousel-react';
 
-const Properties = async () => {
+type Property = {
+  id: string;
+  title: string;
+  slug: string;
+  monthly_rent: number;
+  address: string;
+  description: string;
+  list_date: string | null;
+  available_from_date: string | null;
+  photos: string[];
+  updatedAt: Date;
+  createdAt: Date;
+}[];
+
+const Properties = async ({ properties }: { properties: string }) => {
   // const [emblaRef] = useEmblaCarousel();
 
-  const properties = await prisma.properties.findMany();
+  const allProperties: Property = JSON.parse(properties);
+
+  // const props = await prisma.properties.findMany();
   return (
     <section
-      className='mt-12 flex flex-col items-center gap-3 border border-red-500'
+      className='mt-12 flex flex-col items-center gap-3'
       // ref={emblaRef}
     >
-      {properties.map(property => (
+      {allProperties.map(property => (
         <div
           key={property.id}
-          className='my-2 flex w-2/3 flex-row gap-2 rounded-lg border border-blue-500 p-4 shadow-lg'
+          className='my-2 flex w-2/3 flex-row gap-2 rounded-lg border p-4 shadow-lg'
         >
-          <div className='w-1/2 border border-green-500'>
-            <Carousel className='embla_container h-48 border border-red-500'>
+          <div className='flex w-1/2'>
+            <Carousel className='embla_container relative h-full w-full border border-blue-500'>
               <CarouselContent>
                 {property.photos.map((photo, index) => (
-                  <CarouselItem key={index}>
+                  <CarouselItem
+                    className='embla__slide flex h-80 items-center justify-center'
+                    key={index}
+                  >
                     <div>
-                      <img
-                        src={photo}
-                        alt='rental photo'
-                        className='embla_slide_img'
-                      />
+                      <img src={photo} alt='rental photo' className='' />
                     </div>
                   </CarouselItem>
                 ))}
+                {property.photos.length && (
+                  <div className='absolute bottom-6 right-3 flex h-6 w-10 items-center justify-center rounded-lg bg-gray-200  '>
+                    <span className='inline-flex items-center justify-between gap-1 text-sm'>
+                      <Image
+                        src='/camera.png'
+                        title='camera icon'
+                        height={15}
+                        width={15}
+                        alt='camera'
+                      />
+
+                      {property.photos.length}
+                    </span>
+                  </div>
+                )}
               </CarouselContent>
               {property.photos.length > 1 ? <CarouselPrevious /> : null}
               {property.photos.length > 1 ? <CarouselNext /> : null}
             </Carousel>
           </div>
-          <div className='flex w-1/2 flex-col border border-purple-600'>
+          <div className='flex w-1/2 flex-col'>
             <div className='mb-2 text-2xl font-bold'>
-              <>{property.monthly_rent} PCM</>
+              <>£{property.monthly_rent} PCM</>
             </div>
             <div className='mb-1 text-xl font-semibold'>
               <>{property.title}</>

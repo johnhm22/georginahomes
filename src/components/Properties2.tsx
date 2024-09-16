@@ -22,8 +22,6 @@ type Property = {
 const Properties2 = ({ properties }: { properties: string }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
 
-  console.log('*** emblaRef *** : ', emblaRef);
-
   const allProperties: Property = JSON.parse(properties);
 
   const scrollPrev = useCallback(() => {
@@ -44,7 +42,7 @@ const Properties2 = ({ properties }: { properties: string }) => {
         >
           <div className='embla relative mx-auto max-w-lg'>
             <div className='embla__viewport h-80' ref={emblaRef}>
-              <div className='embla__container  h-full'>
+              <div className='embla__container h-full'>
                 {property.photos.map((photo, index) => (
                   <div
                     key={index}
@@ -75,6 +73,11 @@ const Properties2 = ({ properties }: { properties: string }) => {
                 </button>
               </div>
             ) : null}
+            {property.photos.length && (
+              <div className='absolute bottom-6 right-3 flex h-6 w-6 items-center justify-center rounded-3xl bg-slate-300  '>
+                {property.photos.length}
+              </div>
+            )}
             <div className='absolute bottom-4 left-0 right-0'>
               <div className='mb-1 flex items-center justify-center gap-2'>
                 {property.photos.map((_, index) => (

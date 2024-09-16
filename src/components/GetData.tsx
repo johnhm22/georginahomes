@@ -3,6 +3,7 @@
 import React from 'react';
 import prisma from '../lib/db';
 import Properties2 from './Properties2';
+import Properties from './Properties';
 
 const GetData = async () => {
   const properties = await prisma.properties.findMany();
@@ -12,7 +13,7 @@ const GetData = async () => {
 
   return (
     <section>
-      <Properties2 properties={allProperties} />;
+      <Properties properties={allProperties} />;
     </section>
   );
 };

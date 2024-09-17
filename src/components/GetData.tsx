@@ -8,12 +8,9 @@ import Properties from './Properties';
 const GetData = async () => {
   const properties = await prisma.properties.findMany();
   const allProperties = JSON.stringify(properties);
-
-  console.log('properties: ', properties);
-
   return (
     <section>
-      <Properties properties={allProperties} />;
+      <Properties allProperties={allProperties} />;
     </section>
   );
 };

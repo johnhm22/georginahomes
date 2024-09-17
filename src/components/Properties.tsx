@@ -1,5 +1,4 @@
 import React from 'react';
-import prisma from '../lib/db';
 import {
   Carousel,
   CarouselContent,
@@ -7,8 +6,6 @@ import {
   CarouselNext,
   CarouselPrevious
 } from './ui/carousel';
-import Image from 'next/image';
-import useEmblaCarousel from 'embla-carousel-react';
 
 type Properties = {
   id: string;
@@ -58,7 +55,7 @@ const Properties = async ({ allProperties }: { allProperties: string }) => {
           </div>
           <div className='flex w-1/2 flex-col'>
             <div className='mb-2 text-2xl font-bold'>
-              <>{property.monthly_rent} PCM</>
+              <>£{property.monthly_rent} PCM</>
             </div>
             <div className='mb-1 text-xl font-semibold'>
               <>{property.title}</>

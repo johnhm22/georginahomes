@@ -25,23 +25,16 @@ type Properties = {
 }[];
 
 const Properties = async ({ allProperties }: { allProperties: string }) => {
-  // const [emblaRef] = useEmblaCarousel();
-
   const properties: Properties = JSON.parse(allProperties);
 
-  // const properties = await prisma.properties.findMany();
-
   return (
-    <section
-      className='mt-12 flex flex-col items-center gap-3 border border-red-500'
-      // ref={emblaRef}
-    >
+    <section className='mt-12 flex flex-col items-center gap-3'>
       {properties.map(property => (
         <div
           key={property.id}
-          className='my-2 flex w-2/3 flex-row gap-2 rounded-lg border border-blue-500 p-4 shadow-lg'
+          className='my-2 flex w-2/3 flex-row gap-2 rounded-lg border p-4 shadow-lg'
         >
-          <div className='w-1/2 border border-green-500'>
+          <div className='w-1/2'>
             <Carousel className='embla_container relative h-full w-full'>
               <CarouselContent>
                 {property.photos.map((photo, index) => (
@@ -63,7 +56,7 @@ const Properties = async ({ allProperties }: { allProperties: string }) => {
               {property.photos.length > 1 ? <CarouselNext /> : null}
             </Carousel>
           </div>
-          <div className='flex w-1/2 flex-col border border-purple-600'>
+          <div className='flex w-1/2 flex-col'>
             <div className='mb-2 text-2xl font-bold'>
               <>{property.monthly_rent} PCM</>
             </div>

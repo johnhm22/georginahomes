@@ -13,8 +13,10 @@ export const getProperties = async () => {
   // return properties;
 };
 
-export const updateProperty = async (id: string, data: {}) => {
+export const updateProperty = async (id: string) => {
   //add in authentication to check user is logged in
   //add in authentication to check user is admin
   //option to add in logging to check who is updating the db
+
+  console.log('Property id in DAL: ', id);
 };

@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import {
   Carousel,
   CarouselContent,
@@ -6,8 +8,9 @@ import {
   CarouselNext,
   CarouselPrevious
 } from './ui/carousel';
+import UpdateForm from './UpdateForm';
 
-type Properties = {
+type Property = {
   id: string;
   title: string;
   slug: string;
@@ -19,17 +22,40 @@ type Properties = {
   photos: string[];
   updatedAt: Date;
   createdAt: Date;
-}[];
+};
 
-const Properties = async ({ allProperties }: { allProperties: string }) => {
-  const properties: Properties = JSON.parse(allProperties);
+type AmendProperty = (id: string) => Promise<null>;
+
+const Properties = ({
+  allProperties,
+  amendProperty
+}: {
+  allProperties: string;
+  amendProperty: AmendProperty;
+}) => {
+  const properties: Property[] = JSON.parse(allProperties);
+
+  const [updateFormVisible, setUpdateFormVisibility] = useState<boolean>(false);
+
+  const handleOnClick = (property: Property) => {
+    console.log('*** property ***', property);
+    setUpdateFormVisibility(true);
+    amendProperty(property.id);
+  };
+
+  const handleClose = () => {
+    setUpdateFormVisibility(false);
+  };
 
   return (
-    <section className='mt-12 flex flex-col items-center gap-3'>
+    <section className='mt-12 flex flex-col items-center gap-3 border border-blue-500'>
       {properties.map(property => (
         <div
           key={property.id}
           className='my-2 flex w-2/3 flex-row gap-2 rounded-lg border p-4 shadow-lg'
+          onClick={() => {
+            handleOnClick(property);
+          }}
         >
           <div className='w-1/2'>
             <Carousel className='embla_container relative h-full w-full'>
@@ -79,6 +105,9 @@ const Properties = async ({ allProperties }: { allProperties: string }) => {
           </div>
         </div>
       ))}
+      <div className='absolute mt-5 flex h-4/6 w-1/2 rounded-sm py-4 pl-4'>
+        {updateFormVisible && <UpdateForm handleClose={handleClose} />}
+      </div>
     </section>
   );
 };

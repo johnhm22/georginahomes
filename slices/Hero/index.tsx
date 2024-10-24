@@ -1,5 +1,5 @@
+import AddProperty from '@/src/components/AddProperty';
 import Properties from '@/src/components/Properties';
-import Properties2 from '@/src/components/Properties2';
 import { Content } from '@prismicio/client';
 import { PrismicNextImage } from '@prismicio/next';
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react';
@@ -60,7 +60,8 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       </div>
 
       <h2>Properties component using postgres data</h2>
-      {/* <Properties /> */}
+
+      <Properties />
     </section>
   );
 };

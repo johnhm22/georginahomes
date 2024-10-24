@@ -185,6 +185,82 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
+type HomepagePgsqlDocumentDataSlicesSlice = HeroSlice;
+
+/**
+ * Content for Homepage_PGSQL documents
+ */
+interface HomepagePgsqlDocumentData {
+  /**
+   * Title field in *Homepage_PGSQL*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_pgsql.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *Homepage_PGSQL*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_pgsql.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<HomepagePgsqlDocumentDataSlicesSlice> /**
+   * Meta Title field in *Homepage_PGSQL*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: homepage_pgsql.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Homepage_PGSQL*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: homepage_pgsql.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Homepage_PGSQL*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_pgsql.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Homepage_PGSQL document from Prismic
+ *
+ * - **API ID**: `homepage_pgsql`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type HomepagePgsqlDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<HomepagePgsqlDocumentData>,
+    'homepage_pgsql',
+    Lang
+  >;
+
 type NewPageDocumentDataSlicesSlice = HeroSlice;
 
 /**
@@ -475,6 +551,7 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes =
   | AboutDocument
   | HomepageDocument
+  | HomepagePgsqlDocument
   | NewPageDocument
   | PropertiesDocument
   | PropertyTestDocument
@@ -1055,6 +1132,9 @@ declare module '@prismicio/client' {
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
       HomepageDocumentDataSlices2Slice,
+      HomepagePgsqlDocument,
+      HomepagePgsqlDocumentData,
+      HomepagePgsqlDocumentDataSlicesSlice,
       NewPageDocument,
       NewPageDocumentData,
       NewPageDocumentDataSlicesSlice,

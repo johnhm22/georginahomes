@@ -9,6 +9,7 @@ import {
 } from './ui/carousel';
 import Image from 'next/image';
 import useEmblaCarousel from 'embla-carousel-react';
+import { getProperties } from '../data-access-layer/property-data';
 
 type Properties = {
   id: string;
@@ -24,8 +25,13 @@ type Properties = {
   createdAt: Date;
 }[];
 
-const Properties = async ({ allProperties }: { allProperties: string }) => {
-  const properties: Properties = JSON.parse(allProperties);
+// const Properties = async ({ allProperties }: { allProperties: string }) => {
+const Properties = async () => {
+  // const properties: Properties = JSON.parse(allProperties);
+
+  const properties: Properties = JSON.parse(await getProperties());
+
+  // console.log('*** properties: ***', properties);
 
   return (
     <section className='mt-12 flex flex-col items-center gap-3'>

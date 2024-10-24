@@ -30,6 +30,7 @@ const Header = () => {
           onClick={() => {
             dialogRef.current?.showModal();
           }}
+          className='cursor-pointer'
         >
           Add Property
         </p>

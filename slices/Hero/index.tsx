@@ -48,8 +48,6 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           <PrismicNextImage
             field={slice.primary.image}
             className='100vw'
-            // width={1100}
-            // height={900}
             alt=''
           />
         </div>
@@ -58,9 +56,6 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           {slice.primary.property_heading}
         </h2>
       </div>
-
-      <h2>Properties component using postgres data</h2>
-
       <Properties />
     </section>
   );

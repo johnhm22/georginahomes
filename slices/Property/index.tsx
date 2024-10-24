@@ -10,7 +10,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious
-} from '@/components/ui/carousel';
+} from '@/src/components/ui/carousel';
 
 /**
  * Props for `Property`.
@@ -43,8 +43,8 @@ const Property = async ({ slice }: PropertyProps): Promise<JSX.Element> => {
       data-slice-variation={slice.variation}
       className='mt-12 flex justify-center'
     >
-      <div className='my-2 flex w-2/3 flex-row gap-2 rounded-lg border p-4 shadow-lg'>
-        <div>
+      <div className='my-2 flex w-2/3 flex-row gap-2 rounded-lg border border-cyan-500 p-4 shadow-lg'>
+        <div className='border border-red-500'>
           <Carousel className='w-full max-w-xs'>
             <CarouselContent>
               {slice.primary.photos.map((item, index) => (

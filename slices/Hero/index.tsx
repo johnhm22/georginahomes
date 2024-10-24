@@ -1,3 +1,5 @@
+import AddProperty from '@/src/components/AddProperty';
+import Properties from '@/src/components/Properties';
 import { Content } from '@prismicio/client';
 import { PrismicNextImage } from '@prismicio/next';
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react';
@@ -46,8 +48,6 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           <PrismicNextImage
             field={slice.primary.image}
             className='100vw'
-            // width={1100}
-            // height={900}
             alt=''
           />
         </div>
@@ -56,6 +56,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           {slice.primary.property_heading}
         </h2>
       </div>
+      <Properties />
     </section>
   );
 };

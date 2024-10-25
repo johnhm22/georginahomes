@@ -1,4 +1,3 @@
-import AddProperty from '@/src/components/AddProperty';
 import Properties from '@/src/components/Properties';
 import { Content } from '@prismicio/client';
 import { PrismicNextImage } from '@prismicio/next';

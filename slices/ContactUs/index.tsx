@@ -14,12 +14,16 @@ const ContactUs = ({ slice }: ContactUsProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className='flex w-2/3 justify-center'
+      className='flex w-full justify-center'
     >
-      <div className='mb-10 flex w-2/3 flex-col items-center'>
-        <div className='mb-2 text-xl font-semibold'>{slice.primary.title}</div>
-        <div className='mb-1 font-semibold'>{slice.primary.email}</div>
-        <div className='font-semibold'>{slice.primary.contact_number}</div>
+      <div className='mb-10 flex w-max flex-col items-center gap-2'>
+        <div className='text-xl font-semibold'>{slice.primary.title}</div>
+        <div className='text-sm font-semibold md:text-base'>
+          {slice.primary.email}
+        </div>
+        <div className='text-sm font-semibold md:text-base'>
+          {slice.primary.contact_number}
+        </div>
       </div>
     </section>
   );

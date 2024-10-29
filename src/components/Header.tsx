@@ -8,7 +8,7 @@ const Header = () => {
   const dialogRef = useRef<HTMLDialogElement | null>(null);
 
   return (
-    <header className='sticky top-0 flex min-h-14 flex-row items-center justify-between bg-slate-50 px-2 py-4'>
+    <header className='sticky top-0 z-10 flex min-h-14 flex-row items-center justify-between bg-slate-50 px-2 py-4'>
       <span className='flex flex-row items-center gap-2'>
         {/* <Link className='text-xl font-normal text-slate-500' href='/'>
           {settings.data.site_title}

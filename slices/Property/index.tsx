@@ -35,8 +35,6 @@ const Property = async ({ slice }: PropertyProps): Promise<JSX.Element> => {
   }
 */
 
-  // console.log('**** slice.primary.photos ****: ', slice.primary.photos);
-
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -44,7 +42,7 @@ const Property = async ({ slice }: PropertyProps): Promise<JSX.Element> => {
       className='mt-12 flex justify-center'
     >
       <div className='my-2 flex w-2/3 flex-row gap-2 rounded-lg border border-cyan-500 p-4 shadow-lg'>
-        <div className='border border-red-500'>
+        <div>
           <Carousel className='w-full max-w-xs'>
             <CarouselContent>
               {slice.primary.photos.map((item, index) => (

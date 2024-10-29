@@ -12,14 +12,13 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
  * Component for "Hero" Slices.
  */
 const Hero = ({ slice }: HeroProps): JSX.Element => {
-  // console.log('slice.primary.image from Hero: ', slice.primary.image);
+  
 
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      // className='border border-red-500 px-4 py-10 md:px-6 md:py-14 lg:py-16'
-      className='border border-red-500'
+      // className='border border-red-500 px-4 py-10 md:px-6 md:py-14 lg:py-16'      
     >
       <div className='flex flex-col justify-center'>
         <div className='flex justify-center'>

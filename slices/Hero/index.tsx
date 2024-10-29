@@ -19,6 +19,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       // className='border border-red-500 px-4 py-10 md:px-6 md:py-14 lg:py-16'
+      className='border border-red-500'
     >
       <div className='flex flex-col justify-center'>
         <div className='flex justify-center'>
@@ -27,7 +28,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
               field={slice.primary.heading}
               components={{
                 heading1: ({ children }) => (
-                  <h1 className='font-display py-6 text-2xl md:text-6xl'>
+                  <h1 className='font-display py-2 text-2xl sm:text-4xl md:py-6 md:text-6xl'>
                     {children}
                   </h1>
                 )
@@ -37,7 +38,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
               field={slice.primary.body}
               components={{
                 paragraph: ({ children }) => (
-                  <p className='font-body text-lg font-normal leading-10 md:text-3xl'>
+                  <p className='font-body invisible text-lg font-normal leading-10 md:text-3xl lg:visible'>
                     {children}
                   </p>
                 )
@@ -51,7 +52,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           />
         </div>
 
-        <h2 className='font-display mt-16 flex justify-center text-4xl'>
+        <h2 className='font-display mt-8 flex justify-center  text-xl sm:text-2xl md:mt-16 md:text-4xl'>
           {slice.primary.property_heading}
         </h2>
       </div>

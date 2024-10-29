@@ -26,13 +26,13 @@ const Properties = async () => {
   const properties: Properties = JSON.parse(await getProperties());
 
   return (
-    <section className='mt-12 flex flex-col items-center gap-3'>
+    <section className='mt-4 flex flex-col items-center gap-3 md:mt-12'>
       {properties.map(property => (
         <div
           key={property.id}
-          className='my-2 flex w-2/3 flex-row gap-2 rounded-lg border p-4 shadow-lg'
+          className='my-2 flex w-4/5 flex-col gap-2 rounded-lg border p-4 shadow-lg sm:w-3/5 md:w-4/5 md:flex-row'
         >
-          <div className='w-1/2'>
+          <div className='w-full border border-amber-400 md:w-1/2'>
             <Carousel className='embla_container relative h-full w-full'>
               <CarouselContent>
                 {property.photos.map((photo, index) => (
@@ -54,22 +54,22 @@ const Properties = async () => {
               {property.photos.length > 1 ? <CarouselNext /> : null}
             </Carousel>
           </div>
-          <div className='flex w-1/2 flex-col'>
-            <div className='mb-2 text-2xl font-bold'>
-              <>{property.monthly_rent} PCM</>
+          <div className='flex w-full flex-col md:w-1/2'>
+            <div className='mb-2 text-lg font-bold md:text-2xl'>
+              <>£{property.monthly_rent} PCM</>
             </div>
-            <div className='mb-1 text-xl font-semibold'>
+            <div className='text- mb-1 text-base font-semibold md:text-xl'>
               <>{property.title}</>
             </div>
-            <div className='mb-2 text-slate-500'>
+            <div className='mb-2 text-sm text-slate-500 md:text-base'>
               <>{property.address}</>
             </div>
 
-            <p className='mb-2 text-base sm:text-left'>
+            <p className='mb-2 text-sm sm:text-left md:text-base'>
               {property.description}
             </p>
 
-            <div className='text-sm'>
+            <div className='text-xs md:text-sm'>
               <div>
                 <>Listed on: {property.list_date}</>
               </div>

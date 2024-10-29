@@ -1,5 +1,5 @@
 ## Intro
 
-A project designed to test out the prismic.io features - currently work in progress
+A proof-of-concept project using prismic.io as well as a postgresql database - currently work in progress
 
 

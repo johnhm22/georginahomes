@@ -32,7 +32,7 @@ const Properties = async () => {
           key={property.id}
           className='my-2 flex w-4/5 flex-col gap-2 rounded-lg border p-4 shadow-lg sm:w-3/5 md:w-4/5 md:flex-row'
         >
-          <div className='w-full border border-amber-400 md:w-1/2'>
+          <div className='w-full md:w-1/2'>
             <Carousel className='embla_container relative h-full w-full'>
               <CarouselContent>
                 {property.photos.map((photo, index) => (

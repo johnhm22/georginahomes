@@ -7,7 +7,6 @@ import prisma from '../lib/db';
 export const getProperties = async () => {
   //add in authentication check if necessary
   const properties = await prisma.properties.findMany();
-  // console.log('*** properties ***: ', properties);
   const allProperties = JSON.stringify(properties);
   return allProperties;
   // return properties;

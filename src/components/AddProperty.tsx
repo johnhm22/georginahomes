@@ -77,6 +77,7 @@ const AddProperty = ({ dialogRef }: DialogRefProps) => {
                 dialogRef.current?.close();
               }}
               variant='destructive'
+              type='button'
             >
               Cancel
             </Button>

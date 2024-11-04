@@ -4,7 +4,7 @@ import React, { FormEvent, MutableRefObject, useRef } from 'react';
 import { Button } from './ui/button';
 
 interface DialogRefProps {
-  dialogRef: MutableRefObject<HTMLFormElement | null>;
+  dialogRef: MutableRefObject<HTMLDialogElement | null>;
 }
 
 const AddProperty = ({ dialogRef }: DialogRefProps) => {

@@ -89,10 +89,9 @@ const AddProperty = ({ dialogRef }: DialogRefProps) => {
             <Button onClick={handleCancel} variant='destructive' type='button'>
               Cancel
             </Button>
-            {/* <Button variant='add' type='submit'>
+            <Button variant='add' type='submit'>
               Add
-            </Button> */}
-            <button type='submit'>Add</button>
+            </Button>
           </span>
         </form>
       </div>

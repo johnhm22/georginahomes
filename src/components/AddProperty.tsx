@@ -12,9 +12,6 @@ const AddProperty = ({ dialogRef }: DialogRefProps) => {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log('event.currentTarget:', event.currentTarget);
-    const formData = new FormData(event.currentTarget);
-    console.log('formData: ', formData);
     window.alert('Currently in test mode');
     formRef.current!.reset();
     dialogRef.current!.close();
@@ -89,14 +86,7 @@ const AddProperty = ({ dialogRef }: DialogRefProps) => {
             <p className='text-xs'>Separate each url with a comma</p>
           </span>
           <span className='flex flex-row justify-end gap-2'>
-            <Button
-              onClick={handleCancel}
-              // onClick={() => {
-              //   dialogRef.current?.close();
-              // }}
-              variant='destructive'
-              type='button'
-            >
+            <Button onClick={handleCancel} variant='destructive' type='button'>
               Cancel
             </Button>
             {/* <Button variant='add' type='submit'>

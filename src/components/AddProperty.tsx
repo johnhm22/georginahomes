@@ -1,16 +1,30 @@
 'use client';
 
-import React, { MutableRefObject } from 'react';
+import React, { FormEvent, MutableRefObject, useRef } from 'react';
 import { Button } from './ui/button';
 
 interface DialogRefProps {
-  dialogRef: MutableRefObject<HTMLDialogElement | null>;
+  dialogRef: MutableRefObject<HTMLFormElement | null>;
 }
 
 const AddProperty = ({ dialogRef }: DialogRefProps) => {
-  const handleSubmit = () => {
+  const formRef = useRef<HTMLFormElement | null>(null);
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log('event.currentTarget:', event.currentTarget);
+    const formData = new FormData(event.currentTarget);
+    console.log('formData: ', formData);
     window.alert('Currently in test mode');
+    formRef.current!.reset();
+    dialogRef.current!.close();
   };
+
+  const handleCancel = () => {
+    formRef.current?.reset();
+    dialogRef.current?.close();
+  };
+
   return (
     <section>
       <div className='container h-max w-auto  border bg-slate-100 '>
@@ -19,46 +33,49 @@ const AddProperty = ({ dialogRef }: DialogRefProps) => {
           className='flex flex-col gap-2 py-2'
           onSubmit={handleSubmit}
           method='dialog'
+          ref={formRef}
         >
           <input
             name='title'
             type='text'
             className='rounded-lg border px-2 py-2'
             placeholder='title'
-            required
+            id='title'
+            // required
           />
           <input
             name='rent'
+            type='text'
             className='rounded-lg border px-2 py-2'
             placeholder='monthly rent'
-            required
+            // required
           />
           <input
             type='text'
             name='address'
             className='rounded-lg border px-2 py-2'
             placeholder='address'
-            required
+            // required
           />
           <input
             type='text'
             name='listed date'
             className='rounded-lg border px-2 py-2'
             placeholder='listed date'
-            required
+            // required
           />
           <input
             type='text'
             name='available date'
             className='rounded-lg border px-2 py-2'
             placeholder='available date'
-            required
+            // required
           />
           <textarea
             name='description'
             className='rounded-lg border px-2 py-2'
             placeholder='description'
-            required
+            // required
             // rows='5'
           />
           <span>
@@ -73,15 +90,19 @@ const AddProperty = ({ dialogRef }: DialogRefProps) => {
           </span>
           <span className='flex flex-row justify-end gap-2'>
             <Button
-              onClick={() => {
-                dialogRef.current?.close();
-              }}
+              onClick={handleCancel}
+              // onClick={() => {
+              //   dialogRef.current?.close();
+              // }}
               variant='destructive'
               type='button'
             >
               Cancel
             </Button>
-            <Button variant='add'>Add</Button>
+            {/* <Button variant='add' type='submit'>
+              Add
+            </Button> */}
+            <button type='submit'>Add</button>
           </span>
         </form>
       </div>
